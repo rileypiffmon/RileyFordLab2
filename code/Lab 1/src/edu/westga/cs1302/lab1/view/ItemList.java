@@ -11,6 +11,8 @@ import java.util.ArrayList;
  * 
  */
 public class ItemList {
+	private static final double TIP_PERCENTAGE = 0.2;
+	private static final double TAX_PERCENTAGE = 0.1;
 	private Bill bill;
 	private String text;
 	private double subTotal = 0.0;
@@ -42,8 +44,8 @@ public class ItemList {
 	private void addSubTotalToList() {
 		this.text += System.lineSeparator();
 		this.text += "SUBTOTAL - $" + this.subTotal + System.lineSeparator();
-		double tax = this.subTotal * 0.1;
-		double tip = this.subTotal * 0.2;
+		double tax = this.subTotal * TAX_PERCENTAGE;
+		double tip = this.subTotal * TIP_PERCENTAGE;
 		this.text += "TAX - $" + tax + System.lineSeparator();
 		this.text += "TIP - $" + tip + System.lineSeparator();
 		this.text += "TOTAL - $" + (this.subTotal + tip + tax);
