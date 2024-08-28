@@ -34,30 +34,15 @@ public class Bill {
 		this.items.add(item);
 	}
 	
-	/** Return a String containing the list of bill items and total for the bill.
+	/** Returns the list of BillItems
 	 * 
-	 * @precondition none
-	 * @postcondition none
+	 * @precondition item != null
+	 * @postcondition ArrayList this.items is returned
 	 * 
-	 * @return a String containing the list of bill items and total for the bill
+	 * @return this.items the ArrayList with all the BillItems for the Bill
 	 */
-	public String getText() {
-		String text = "ITEMS" + System.lineSeparator();
-		double subTotal = 0.0;
-		for (BillItem item : this.items) {
-			text += item.getName() + " - " + item.getAmount() + System.lineSeparator();
-			subTotal += item.getAmount();
-		}
-		
-		text += System.lineSeparator();
-		text += "SUBTOTAL - $" + subTotal + System.lineSeparator();
-		double tax = subTotal * 0.1;
-		double tip = subTotal * 0.2;
-		text += "TAX - $" + tax + System.lineSeparator();
-		text += "TIP - $" + tip + System.lineSeparator();
-		text += "TOTAL - $" + (subTotal + tip + tax);
-		
-		return text;
+	public ArrayList<BillItem> getList() {
+		return this.items;
 	}
 
 }
