@@ -32,6 +32,7 @@ public class ItemList {
 		this.listOfItems = bill.getList();
 		this.addItemsToList();
 		this.addSubTotalToList();
+		System.out.println(this.text);
 	}
 	
 	private void addItemsToList() {
@@ -48,7 +49,7 @@ public class ItemList {
 		double tip = this.subTotal * TIP_PERCENTAGE;
 		this.text += "TAX - $" + tax + System.lineSeparator();
 		this.text += "TIP - $" + tip + System.lineSeparator();
-		this.text += "TOTAL - $" + (this.subTotal + tip + tax);
+		this.text += "TOTAL - $" + (Math.round(((this.subTotal + tip + tax) * 100) / 100));
 	}
 	
 	/** Gets the text of the bill
@@ -56,10 +57,9 @@ public class ItemList {
 	 * @precondition text != null;
 	 * @postcondition none
 	 * 
-	 * @return this.text the bill's text
 	 */
-	public String getText() {
-		return this.text;
+	public void printBill() {
+		System.out.println(this.text);
 	}
 
  }
