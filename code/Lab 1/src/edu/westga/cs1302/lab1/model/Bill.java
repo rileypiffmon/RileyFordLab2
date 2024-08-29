@@ -36,7 +36,7 @@ public class Bill {
 	
 	/** Returns the list of BillItems
 	 * 
-	 * @precondition item != null
+	 * @precondition this.items != null
 	 * @postcondition ArrayList this.items is returned
 	 * 
 	 * @return this.items the ArrayList with all the BillItems for the Bill
