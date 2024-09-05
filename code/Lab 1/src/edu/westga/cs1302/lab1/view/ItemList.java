@@ -20,12 +20,15 @@ public class ItemList {
 	
 	/** Creates a String containing the list of bill items and total for the bill.
 	 * 
-	 * @precondition none
+	 * @precondition bill != null
 	 * @postcondition none
 	 * 
 	 * @param bill the bill the list will be for
 	 */
 	public ItemList(Bill bill) {
+		if (bill == null) {
+			throw new IllegalArgumentException("Must have a bill to create a list");
+		}
 		bill = this.bill;
 		this.text = "ITEMS" + System.lineSeparator();
 		this.subTotal = 0.0;
@@ -54,12 +57,36 @@ public class ItemList {
 	
 	/** Gets the text of the bill
 	 * 
-	 * @precondition text != null;
+	 * @precondition none;
 	 * @postcondition none
 	 * 
 	 */
 	public void printBill() {
 		System.out.println(this.text);
+	}
+	
+	/**Gets the listOfItems variable
+	 * 
+	 * @return listOfItems
+	 */
+	public ArrayList<BillItem> getListOfItems() {
+		return this.listOfItems;
+	}
+	
+	/**Gets the subTotal variable
+	 * 
+	 * @return subTotal
+	 */
+	public double getSubtotal() {
+		return this.subTotal;
+	}
+	
+	/**Gets the bill variable
+	 * 
+	 * @return bill
+	 */
+	public Bill getBill() {
+		return this.bill;
 	}
 
  }
